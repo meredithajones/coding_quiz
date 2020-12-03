@@ -7,26 +7,44 @@
   <title>It's Time For a Code Quiz!</title>
 </head>
 <body>
-  <script defer src="script.js"></script>
+  <script src="script.js"></script>
+  <!-- <script defer src="script.js"></script> Do we need to use defer in the script? -->
+
 
 
   <button type="button" class="btn btn-warning">Start The Quiz</button>
-
-  
 <div class=container>
-  <div id=timer></div>
-  <div class="quizArea">
-    <h2 id="question"></h2>
-    <div id="multipleChoices"></div>
+
   </div>
-
-
-      -div for a quiz area
-        - (dynamic) buttons multiple choices, h1 queston
+  <!-- creating the timer: Display it inside of an element-->
+  <p id="timer"></p>
 
 
 
-</div>
+      <!-- -div for a quiz area -->
+        <!-- - (dynamic) buttons multiple choices, h1 question go here-->
+        <!-- What do I need to attach my buttons and my questions to in the html? -->
+  <section class=container>
+    <div class=card></div>
+    <div id=timer></div>
+    <div class="quizArea">
+      <!-- <div class ="hide">  Should I be using "hide" here? -->
+      <ul>
+        <li>
+        <h2 id="question"></h2>
+      </li>
+      </ul>
+      <div id="multipleChoices">
+        <btn1></btn1>
+        <btn2></btn2>
+        <btn3></btn3>
+        <btn4></btn4>
+      </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
   
 </body>
 </html>
