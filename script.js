@@ -19,6 +19,12 @@
           },
 
     {
+    question: "What is the name of the first recorded computer coder?",
+    choices: ["Bill Gates", "Rip VanWinkle", "Alice Lovelace", "Mr. Robot"],
+    answer: "Ada Lovelace"
+                },
+
+    {
       question: "What does HTML stand for?",
       choices: ["How To Make lines", "HyperText Markup Language", "Hexagon Textbox Marker Lineup", "Helping Toolkit Makes Loops"],
       answer: "HyperText Markup Language"
@@ -49,7 +55,8 @@ var score = document.getElementById("score");
 //Beginning the game:
 function btnClick(){
     if (questionIndex>=questions.length) {
-        hide
+        // startButton.setAttribute("class", "hide")
+        quizArea.setAttribute("class", "hide");
         return;
     }
     console.log(this.value, questions[questionIndex].answer)
@@ -57,7 +64,7 @@ questionIndex++
     if (this.value !== questions[questionIndex].answer) {
         alert("Wrong")
         penalty();
-        //penalize time
+        //penalize time- decduct 5 seconds
         setNextQuestion();
         
         
@@ -151,8 +158,8 @@ function tick(){
 
 function startGame(){
     //console.log ("started")
-   startButton.setAttribute("class", "hide")
-   quizArea.removeAttribute("class");
+    startButton.setAttribute("class", "hide")
+    quizArea.removeAttribute("class");
     //hiddenElements.classList.remove('hide')
   
     timer = setInterval(tick, 1000)

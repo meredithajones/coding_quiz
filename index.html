@@ -10,15 +10,24 @@
 <body>
   
   <!-- <script defer src="script.js"></script> Do we need to use defer in the script? -->
-
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Coding Quiz</h1>
+      <!-- <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p> -->
+    </div>
+  </div>
 
 
   <button type="button" id="start" >Start The Quiz</button>
-<div class=container>
 
   </div>
   <!-- creating the timer: Display it inside of an element-->
-  <p id="timer"></p>
+  <div class="lead"></div>
+  <div class="d-flex justify-content-center">
+  <!-- <h3 class = "lead"> Time Remaining:</h3> -->
+  <p id="timer" class="lead"></p>
+</div>
+</div>
 
 
 
@@ -32,7 +41,7 @@
 
       <div id=timer></div>
       <div id="score"></div>      
-      <!-- <div class ="hide">  Should I be using "hide" here? -->
+      
         <!-- Creating an area to hold the question -->
         <h2 id="question"></h2>
   <!-- Creating an area to hold the choices -->
@@ -44,5 +53,7 @@
   </section>
 
   <script src="script.js"></script>
+</div>
+</div>
 </body>
 </html>
