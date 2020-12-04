@@ -28,55 +28,71 @@
 var questionIndex = 0;
 
 // We start the quiz with a score of 0.
-var score = 0;
+var numCorrect = 0;
 //Creating the start button:
 var startButton = document.getElementById("start");
+
 var quizArea = document.getElementById("quizArea");
 //setting the area for the possible answer buttons
 var choicesDiv = document.getElementById("multipleChoices");
+
+// Time count
 var time = questions.length * 20;
+//Setting up the timer var
 var timeDiv = document.getElementById("timer");
+
+//setting up a score display
 var score = document.getElementById("score");
 
 
 
 //Beginning the game:
-
 function btnClick(){
+    if (questionIndex>=questions.length) {
+        hide
+        return;
+    }
     console.log(this.value, questions[questionIndex].answer)
-
+questionIndex++
     if (this.value !== questions[questionIndex].answer) {
         alert("Wrong")
-        //penalize time 
-
-
+        penalty();
+        //penalize time
+        setNextQuestion();
+        
+        
+       
     }else{
 
         alert("correct!")
 			// add one to the number to the count of correct answers
             numCorrect++;
-            //Clear the prior questions & answers before showing the next question
-            //Use the removeChild() method
-            clearLastQuestion();
-        // setNextQuestion();
+            console.log(numCorrect);
+            setNextQuestion();
     }
+//Need help setting up the opertation the access the next question 
+// after the one prior has been answered...is this correct?
+    questions[questionIndex+1].question
 
-    //move to next question
-    function clearLastQuestion(){
-        console.log (choice)
-        var clearAnswers = choicesDiv.removeChild(choiceBtn);
-    }
+    
+   function penalty(){
+      time =time - 5;
+   }
+
     //check if we have run out of questions
         //if more questions call setnextquestion
         //else end game
 
 }
+
 //Creating the first question/set of answers options: 
 function setNextQuestion(){
     console.log(questions[questionIndex])
+    //setting up the current questions & "choice buttons" by index
     var currentQuest = questions[questionIndex]
     var quest = document.getElementById("question");
     quest.textContent = currentQuest.question;
+    choicesDiv.innerHTML=""
     //showQuestion(currentQuestionIndex)
     //Using a forEach loop instead of a for loop here
     currentQuest.choices.forEach(function(choice, i){
@@ -93,6 +109,10 @@ function setNextQuestion(){
     })
 
 };
+
+
+
+
 // //Second set with question and answer options: 
 // function setNextQuestion(){
 //     console.log(questions[questionIndex]+1)
@@ -113,20 +133,28 @@ function setNextQuestion(){
 //     })
 
 // };
-
-//Setting up the timer
+// Setting up the timer on the HTML
 function tick(){
     time--;
    // console.log(time)
     var timeDiv = document.getElementById("timer");
     timeDiv.textContent = time
+
+    // When I try to run this code below, it breaks the quiz
+    // if (TotalSeconds <= 0) { alert("Time's up!")
+    // {
+    // // return; } 
+    // TotalSeconds -= 1; UpdateTimer() window.setTimeout("Tick()", 1000); 
+    
 }
+
 
 function startGame(){
     //console.log ("started")
    startButton.setAttribute("class", "hide")
    quizArea.removeAttribute("class");
     //hiddenElements.classList.remove('hide')
+  
     timer = setInterval(tick, 1000)
     setNextQuestion();
 };
@@ -136,12 +164,6 @@ function startGame(){
 
 //Creating the quiz variables
 //We will need a question prompt, 4 answer options, and what the correct answer is. 
-// *Create a function called wrong answer*
-
-// Is the code below attaching my vars to the text at the end of the lines?
-// var quizAreaEl = document.getElementById("quizArea");
-// var questionEl = document.getElementById("question");
-// var multipleChoicesEl = document.createElement("multipleChoices");
 
 // questionEl.appendChild(questions);
 // questionEl.innerHTML="Helllooooo There"
@@ -195,11 +217,6 @@ function startGame(){
 
 //4:23
 //The first item in an array is at the zero index, so start out with questionIndex = 0
-
-
-
-
-
 
 
 //Put the quiz into an object
@@ -341,3 +358,9 @@ function startGame(){
 // }
 console.log(startButton)
 startButton.addEventListener('click', startGame);
+
+// Show score at end of Quiz
+//alert("You got " + score + "/" + questions.length);
+
+//Card should appear with inputs for initials-> place that info & the score
+//into local storage 
