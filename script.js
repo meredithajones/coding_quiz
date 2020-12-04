@@ -20,7 +20,7 @@
 
     {
     question: "What is the name of the first recorded computer coder?",
-    choices: ["Bill Gates", "Rip VanWinkle", "Alice Lovelace", "Mr. Robot"],
+    choices: ["Bill Gates", "Rip VanWinkle", "Ada Lovelace", "Mr. Robot"],
     answer: "Ada Lovelace"
                 },
 
@@ -32,9 +32,10 @@
 ]
 
 var questionIndex = 0;
-
 // We start the quiz with a score of 0.
+
 var numCorrect = 0;
+
 //Creating the start button:
 var startButton = document.getElementById("start");
 
@@ -43,12 +44,12 @@ var quizArea = document.getElementById("quizArea");
 var choicesDiv = document.getElementById("multipleChoices");
 
 // Time count
-var time = questions.length * 20;
+var time = questions.length * 15;
 //Setting up the timer var
 var timeDiv = document.getElementById("timer");
 
 //setting up a score display
-var score = document.getElementById("score");
+var score = document.getElementById("correct");
 
 
 
@@ -57,14 +58,17 @@ function btnClick(){
     if (questionIndex>=questions.length) {
         // startButton.setAttribute("class", "hide")
         quizArea.setAttribute("class", "hide");
+        timeDiv.setAttribute("class", "hide");
         return;
     }
     console.log(this.value, questions[questionIndex].answer)
-questionIndex++
+console.log(this.value, questions[questionIndex].answer)
+
     if (this.value !== questions[questionIndex].answer) {
         alert("Wrong")
-        penalty();
+        penalty()
         //penalize time- decduct 5 seconds
+        questionIndex++
         setNextQuestion();
         
         
@@ -75,6 +79,8 @@ questionIndex++
 			// add one to the number to the count of correct answers
             numCorrect++;
             console.log(numCorrect);
+            questionIndex++
+            console.log(this.value, questions[questionIndex].answer)
             setNextQuestion();
     }
 //Need help setting up the opertation the access the next question 
@@ -153,6 +159,12 @@ function tick(){
     // // return; } 
     // TotalSeconds -= 1; UpdateTimer() window.setTimeout("Tick()", 1000); 
     
+}
+
+function trackScore(){
+    var score = document.getElementById("correct");
+    score.textContent=numCorrect
+
 }
 
 
