@@ -53,12 +53,19 @@ function btnClick(){
     }else{
 
         alert("correct!")
-			// add one to the number of correct answers
-			numCorrect++;
-        setNextQuestion();
+			// add one to the number to the count of correct answers
+            numCorrect++;
+            //Clear the prior questions & answers before showing the next question
+            //Use the removeChild() method
+            clearLastQuestion();
+        // setNextQuestion();
     }
 
     //move to next question
+    function clearLastQuestion(){
+        console.log (choice)
+        var clearAnswers = choicesDiv.removeChild(choiceBtn);
+    }
     //check if we have run out of questions
         //if more questions call setnextquestion
         //else end game
