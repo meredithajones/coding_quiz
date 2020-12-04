@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/style.css"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>It's Time For a Code Quiz!</title>
 </head>
 <body>
-  <script src="script.js"></script>
+  
   <!-- <script defer src="script.js"></script> Do we need to use defer in the script? -->
 
 
 
-  <button type="button" class="btn btn-warning">Start The Quiz</button>
+  <button type="button" id="start" >Start The Quiz</button>
 <div class=container>
 
   </div>
@@ -26,25 +27,19 @@
         <!-- What do I need to attach my buttons and my questions to in the html? -->
   <section class=container>
     <div class=card></div>
-    <div id=timer></div>
-    <div class="quizArea">
+    
+    <div class="hide" id="quizArea">
+      <div id=timer></div>
+      <div id="score"></div>      
       <!-- <div class ="hide">  Should I be using "hide" here? -->
-      <ul>
-        <li>
         <h2 id="question"></h2>
-      </li>
-      </ul>
-      <div id="multipleChoices">
-        <btn1></btn1>
-        <btn2></btn2>
-        <btn3></btn3>
-        <btn4></btn4>
-      </div>
+  
+        <div id="multipleChoices"></div>
       </div>
     </div>
   </div>
   </section>
 
-  
+  <script src="script.js"></script>
 </body>
 </html>
