@@ -19,3 +19,6 @@ Although the function of the quiz is fairly simple, I found all of the layers to
 I was happy to be able to get a countdown functioning, as well as increasing and storing the user score. Both of those functions presneted me with many hours of struggle to get them working.
 
 I know that this is far from my best work, but it reprents a lot of hard work. I can say for sure that I have learned a lot in the process of creating the quiz. 
+
+I am incluing a link to the live version of my project webpage: 
+https://meredithajones.github.io/coding_quiz/
